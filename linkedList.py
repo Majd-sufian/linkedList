@@ -93,6 +93,19 @@ class LinkedList:
         return
       itr = itr.next
 
+  def reverse(self):
+    curr, prev = self.head, None
+
+    while curr:
+      nxt = curr.next
+      curr.next = prev
+      prev = curr
+      curr = prev
+
+    while prev:
+      print(prev.data)
+      prev = prev.next
+
   def get_length(self):
     length = 0
     itr = self.head
@@ -123,7 +136,8 @@ ll = LinkedList()
 ll.insert_values(["1", "2", "3", "4", "5"])
 ll.print()
 # ll.remove_by_value("1")
-ll.insert_after_value("5", "99")
+# ll.insert_after_value("5", "99")
 # ll.remove_at(2)
 # ll.get_length()
+ll.reverse()
 ll.print()
